@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
         float ver = Input.GetAxisRaw("Vertical");
 
         transform.position += (Vector3.right * hori + Vector3.up * ver) * speed;
+        //•Ç‚ÌŒü‚±‚¤‚É‚¢‚©‚È‚¢‚æ‚¤‚Èˆ—
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

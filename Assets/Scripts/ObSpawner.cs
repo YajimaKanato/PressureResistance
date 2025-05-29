@@ -23,8 +23,7 @@ public class ObSpawner : MonoBehaviour
 
     [Header("Spawn Settings")]
     [Tooltip("ê∂ê¨ä‘äu")]
-    [SerializeField]
-    float spawnInterval = 1.0f;
+    public float spawnInterval = 1.0f;
 
     Coroutine coroutine;
 

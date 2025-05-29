@@ -17,8 +17,15 @@ public class WallMove : MonoBehaviour
 
     public void WallForward()
     {
-        Debug.Log("壁が迫った");
-        transform.position += rate;
+        if (Vector3.Distance(transform.position, new Vector3(0, 0, 0)) - rate.magnitude*2 > 0)
+        {
+            Debug.Log("壁が迫った");
+            transform.position += rate;
+        }
+        else
+        {
+            //ゲームオーバーの操作
+        }
     }
 
     public void WallBack()

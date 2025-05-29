@@ -4,8 +4,7 @@ public class YellMove : MonoBehaviour
 {
     [Header("Radius")]
     [Tooltip("半径を設定してください")]
-    [SerializeField]
-    float radius = 10.5f;
+    public float radius = 10.5f;//オブジェクト生成半径
 
     [Header("Speed")]
     [Tooltip("スピード倍率を設定してください")]
@@ -15,9 +14,9 @@ public class YellMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        theta = Random.Range(0, 2 * Mathf.PI);
-        range = Random.Range(-1, 1) * Mathf.PI / 12;
-        transform.position = new Vector2(Mathf.Cos(theta), Mathf.Sin(theta)) * radius;
+        theta = Random.Range(0, 2 * Mathf.PI);//生成座標を決める偏角
+        range = Random.Range(-1, 1) * Mathf.PI / 12;//生成座標から動き出すときの角度、(0,0,0)に向かって±PI/12
+        transform.position = new Vector2(Mathf.Cos(theta), Mathf.Sin(theta)) * radius;//生成座標
     }
 
     // Update is called once per frame
