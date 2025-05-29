@@ -1,0 +1,32 @@
+using UnityEngine;
+
+public class WallMove : MonoBehaviour
+{
+    [Header("Miss Count")]
+    [Tooltip("ゲームオーバーになる失敗回数を設定してください")]
+    [SerializeField]
+    int miss = 5;
+
+    private Vector3 basepos;//初期位置
+    private Vector3 rate;//壁の進む大きさ
+    void Start()
+    {
+        basepos = transform.position;
+        rate = (new Vector3(0, 0, 0) - basepos) / miss;
+    }
+
+    public void WallForward()
+    {
+        Debug.Log("壁が迫った");
+        transform.position += rate;
+    }
+
+    public void WallBack()
+    {
+        if (Vector3.Distance(transform.position, new Vector3(0, 0, 0)) - Vector3.Distance(basepos, new Vector3(0, 0, 0)) < 0)
+        {//(0,0,0)と自分の座標、初期位置の距離の差を取る
+            Debug.Log("壁が遠ざかった");
+            transform.position -= rate;
+        }
+    }
+}

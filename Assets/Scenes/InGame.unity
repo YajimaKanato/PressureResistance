@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 55999919}
   - component: {fileID: 55999918}
   - component: {fileID: 55999917}
+  - component: {fileID: 55999920}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -301,6 +302,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 833756768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &55999920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55999916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03562d3c19669094c92e5b58b80336b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miss: 10
 --- !u!1 &197863933
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +326,7 @@ GameObject:
   - component: {fileID: 197863936}
   - component: {fileID: 197863935}
   - component: {fileID: 197863934}
+  - component: {fileID: 197863937}
   m_Layer: 0
   m_Name: Square (2)
   m_TagString: Untagged
@@ -435,6 +450,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 833756768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &197863937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197863933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03562d3c19669094c92e5b58b80336b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miss: 10
 --- !u!1 &380319714
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +474,7 @@ GameObject:
   - component: {fileID: 380319717}
   - component: {fileID: 380319716}
   - component: {fileID: 380319715}
+  - component: {fileID: 380319718}
   m_Layer: 0
   m_Name: Square (3)
   m_TagString: Untagged
@@ -569,6 +598,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 833756768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &380319718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380319714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03562d3c19669094c92e5b58b80336b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miss: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,6 +887,7 @@ GameObject:
   - component: {fileID: 684621761}
   - component: {fileID: 684621760}
   - component: {fileID: 684621759}
+  - component: {fileID: 684621762}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -968,6 +1011,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 833756768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &684621762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684621758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03562d3c19669094c92e5b58b80336b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miss: 10
 --- !u!1 &833756765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,7 +1412,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1395,6 +1451,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+  wall:
+  - {fileID: 684621758}
+  - {fileID: 55999916}
+  - {fileID: 197863933}
+  - {fileID: 380319714}
 --- !u!50 &1602032179
 Rigidbody2D:
   serializedVersion: 5
@@ -1422,8 +1483,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &1602032180
-CapsuleCollider2D:
+--- !u!58 &1602032180
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1457,8 +1518,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
+  m_Radius: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -63,7 +63,7 @@ public class SupportSpawner : MonoBehaviour
             nowWeight += item.weight;
             if (rand <= nowWeight)
             {
-                Instantiate(item.prefab, transform.position, Quaternion.identity);
+                Instantiate(item.prefab);
                 break;
             }
         }
