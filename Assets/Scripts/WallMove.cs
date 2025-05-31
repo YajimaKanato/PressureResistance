@@ -7,6 +7,10 @@ public class WallMove : MonoBehaviour
     [SerializeField]
     int miss = 5;
 
+    [Header("GameOver")]
+    [SerializeField]
+    GameObject timer;
+
     private Vector3 basepos;//初期位置
     private Vector3 rate;//壁の進む大きさ
     void Start()
@@ -24,6 +28,7 @@ public class WallMove : MonoBehaviour
         }
         else
         {
+            timer.GetComponent<Timer>().TimerStop();
             //ゲームオーバーの操作
         }
     }

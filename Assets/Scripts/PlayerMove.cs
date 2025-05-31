@@ -12,10 +12,16 @@ public class PlayerMove : MonoBehaviour
     [Tooltip("壁のプレハブを設定してください")]
     [SerializeField]
     GameObject[] wall;//WallMoveクラスを取得
+
+    private float hori, ver;
+    private bool startmove=false;
     void Update()
     {
-        float hori = Input.GetAxisRaw("Horizontal");
-        float ver = Input.GetAxisRaw("Vertical");
+        if (startmove)
+        {
+            hori = Input.GetAxisRaw("Horizontal");
+            ver = Input.GetAxisRaw("Vertical");
+        }
 
         transform.position += (Vector3.right * hori + Vector3.up * ver) * speed;
         //壁の向こうにいかないような処理
@@ -41,5 +47,10 @@ public class PlayerMove : MonoBehaviour
             Debug.Log("批判を受けた");
             Destroy(collision.gameObject);
         }
+    }
+
+    public void StartMove()
+    {
+        startmove = true;
     }
 }

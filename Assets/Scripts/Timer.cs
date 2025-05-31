@@ -19,6 +19,7 @@ public class Timer : MonoBehaviour
     List<GameObject> listActive;
 
     private Text text;
+    private bool timerstop;
     void Start()
     {
         text = GetComponent<Text>();
@@ -28,13 +29,13 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (second > 0 && TimerStart())
+        if (second > 0)
         {
             second -= Time.deltaTime;
             text.text = ((int)second).ToString("00") + ":" + ((second - (int)second) * 100).ToString("00");
         }
 
-        if (second <= 0.0f || TimerStop())
+        if (second <= 0.0f || timerstop)
         {
             //タイムアップ
             foreach (var go in listInactive)
@@ -49,13 +50,8 @@ public class Timer : MonoBehaviour
         }
     }
 
-    public bool TimerStart()
+    public void TimerStop()
     {
-        return true;
-    }
-
-    public bool TimerStop()
-    {
-        return false;
+        timerstop = true;
     }
 }

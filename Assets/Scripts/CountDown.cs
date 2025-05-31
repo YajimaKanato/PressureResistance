@@ -12,6 +12,10 @@ public class CountDown : MonoBehaviour
     [SerializeField]
     List<GameObject> list;
 
+    [Header("Player")]
+    [SerializeField]
+    GameObject player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,5 +39,6 @@ public class CountDown : MonoBehaviour
         {
             go.SetActive(true);
         }
+        player.GetComponent<PlayerMove>().StartMove();
     }
 }
