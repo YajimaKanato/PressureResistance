@@ -47,6 +47,8 @@ public class Timer : MonoBehaviour
             {
                 go.SetActive(true);
             }
+
+            this.gameObject.SetActive(false);
         }
     }
 

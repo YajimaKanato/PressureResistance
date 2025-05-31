@@ -5,26 +5,27 @@ public class WallMove : MonoBehaviour
     [Header("Miss Count")]
     [Tooltip("ゲームオーバーになる失敗回数を設定してください")]
     [SerializeField]
-    int miss = 5;
+    int miss = 10;
 
     [Header("GameOver")]
     [SerializeField]
     GameObject timer;
 
-    private Vector3 basepos;//初期位置
-    private Vector3 rate;//壁の進む大きさ
+    [SerializeField]
+    GameObject cam;
+
+    private float rate;//壁の進む大きさ
     void Start()
     {
-        basepos = transform.position;
-        rate = (new Vector3(0, 0, 0) - basepos) / miss;
+        rate = 1.0f / miss;
     }
 
     public void WallForward()
     {
-        if (Vector3.Distance(transform.position, new Vector3(0, 0, 0)) - rate.magnitude*2 > 0)
+        if (transform.localScale.x > rate && transform.localScale.y > rate)
         {
             Debug.Log("壁が迫った");
-            transform.position += rate;
+            transform.localScale -= new Vector3(rate, rate, 0);
         }
         else
         {
@@ -35,10 +36,10 @@ public class WallMove : MonoBehaviour
 
     public void WallBack()
     {
-        if (Vector3.Distance(transform.position, new Vector3(0, 0, 0)) - Vector3.Distance(basepos, new Vector3(0, 0, 0)) < 0)
-        {//(0,0,0)と自分の座標、初期位置の距離の差を取る
+        if (transform.localScale.x < 1 && transform.localScale.y < 1)
+        {
             Debug.Log("壁が遠ざかった");
-            transform.position -= rate;
+            transform.localScale += new Vector3(rate, rate, 0);
         }
     }
 }

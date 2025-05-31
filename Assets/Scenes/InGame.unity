@@ -265,7 +265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c83f4f11c3ae249a2da77abf7df39e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
 --- !u!1 &20359685
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,13 +455,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 55999916}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03562d3c19669094c92e5b58b80336b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   miss: 10
   timer: {fileID: 378223548}
+  cam: {fileID: 0}
 --- !u!1 &197863933
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,13 +605,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197863933}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03562d3c19669094c92e5b58b80336b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   miss: 10
   timer: {fileID: 378223548}
+  cam: {fileID: 0}
 --- !u!1 &213335233
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,13 +974,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380319714}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03562d3c19669094c92e5b58b80336b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   miss: 10
   timer: {fileID: 378223548}
+  cam: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +994,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1117,6 +1120,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b881b4e0f859e41b43a41392f1274c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &560057405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,13 +1481,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684621758}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03562d3c19669094c92e5b58b80336b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   miss: 10
   timer: {fileID: 378223548}
+  cam: {fileID: 0}
 --- !u!1 &833756765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,6 +1500,7 @@ GameObject:
   - component: {fileID: 833756768}
   - component: {fileID: 833756767}
   - component: {fileID: 833756766}
+  - component: {fileID: 833756769}
   m_Layer: 0
   m_Name: PressureWalls
   m_TagString: Untagged
@@ -1530,26 +1547,6 @@ CompositeCollider2D:
   m_GenerationType: 0
   m_EdgeRadius: 0.2
   m_ColliderPaths:
-  - m_Collider: {fileID: 197863934}
-    m_ColliderPaths:
-    - - X: 95000000
-        Y: 55000000
-      - X: 85000000
-        Y: 55000000
-      - X: 85000000
-        Y: -55000000
-      - X: 95000000
-        Y: -55000000
-  - m_Collider: {fileID: 55999917}
-    m_ColliderPaths:
-    - - X: 95000000
-        Y: -45000000
-      - X: -95000000
-        Y: -45000000
-      - X: -95000000
-        Y: -55000000
-      - X: 95000000
-        Y: -55000000
   - m_Collider: {fileID: 684621759}
     m_ColliderPaths:
     - - X: 95000000
@@ -1560,6 +1557,26 @@ CompositeCollider2D:
         Y: 45000000
       - X: 95000000
         Y: 45000000
+  - m_Collider: {fileID: 55999917}
+    m_ColliderPaths:
+    - - X: 95000000
+        Y: -45000000
+      - X: -95000000
+        Y: -45000000
+      - X: -95000000
+        Y: -55000000
+      - X: 95000000
+        Y: -55000000
+  - m_Collider: {fileID: 197863934}
+    m_ColliderPaths:
+    - - X: 95000000
+        Y: 55000000
+      - X: 85000000
+        Y: 55000000
+      - X: 85000000
+        Y: -55000000
+      - X: 95000000
+        Y: -55000000
   - m_Collider: {fileID: 380319715}
     m_ColliderPaths:
     - - X: -85000000
@@ -1630,6 +1647,21 @@ Transform:
   - {fileID: 380319717}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &833756769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833756765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03562d3c19669094c92e5b58b80336b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miss: 10
+  timer: {fileID: 378223548}
+  cam: {fileID: 519420028}
 --- !u!1 &1128192684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,10 +2392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   wall:
-  - {fileID: 684621758}
-  - {fileID: 55999916}
-  - {fileID: 197863933}
-  - {fileID: 380319714}
+  - {fileID: 833756765}
 --- !u!50 &1602032179
 Rigidbody2D:
   serializedVersion: 5
@@ -2747,7 +2776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c83f4f11c3ae249a2da77abf7df39e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
 --- !u!1 &1810736568
 GameObject:
   m_ObjectHideFlags: 0
