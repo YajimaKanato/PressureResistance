@@ -2,15 +2,29 @@ using UnityEngine;
 
 public class GameDirector : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("ScoreManager")]
+    [SerializeField]
+    GameObject scoreManager;
+
+    private static int score;
+    public static int Score { get{ return score; } }
     void Start()
     {
         Application.targetFrameRate = 60;
+        score = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ScoreUp()
     {
-        
+        Debug.Log("ScoreUp");
+        score += 100;
+        scoreManager.GetComponent<ScoreManager>().ScoreChange();
+    }
+
+    public void ScoreDown()
+    {
+        Debug.Log("ScoreDown");
+        score -= 100;
+        scoreManager.GetComponent<ScoreManager>().ScoreChange();
     }
 }

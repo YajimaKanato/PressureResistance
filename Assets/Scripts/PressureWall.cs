@@ -8,13 +8,13 @@ public class PressureWall : MonoBehaviour
     [SerializeField]
     List<GameObject> list;
 
-    [Header("Support Spawner")]
+    /*[Header("Support Spawner")]
     [SerializeField]
     GameObject support;
-
+    //•Ç‚Ì”—‚è‹ï‡‚ÅƒXƒ|[ƒ“ŠÔŠu“™‚ğ’²®‚·‚é—\’è
     [Header("Obstruction Spawner")]
     [SerializeField]
-    GameObject ob;
+    GameObject ob;*/
 
     private const int miss = 6;//•Ç‚ª”—‚ê‚éÅ‘å‰ñ”
     public static int Miss { get { return miss; } }

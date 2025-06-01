@@ -74,12 +74,17 @@ public class SupportSpawner : MonoBehaviour
         }
     }
 
-    void StopSpawning()
+    public void StopSpawning()
     {
         if (coroutine != null)
         {
             StopCoroutine(coroutine);
             coroutine = null;
         }
+    }
+
+    public void ChangeInterval(float interval)
+    {
+        spawnInterval = interval;
     }
 }

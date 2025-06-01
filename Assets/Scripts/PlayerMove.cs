@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using NUnit.Framework;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -8,13 +9,17 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     float speed = 0.5f;
 
-    [Header("Wall Settings")]
+    [Header("PressureWall Settings")]
     [Tooltip("壁のプレハブを設定してください")]
     [SerializeField]
-    GameObject[] wall;//WallMoveクラスを取得
+    GameObject wall;
+
+    [Header("GameDirector")]
+    [SerializeField]
+    GameObject director;
 
     private float hori, ver;
-    private bool startmove=false;
+    private bool startmove = false;
     void Update()
     {
         if (startmove)
@@ -31,20 +36,19 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Support")
         {
-            foreach (var list in wall)
-            {
-                list.GetComponent<PressureWall>().WallBack();
-            }
             Debug.Log("応援を受けた");
+
+            wall.GetComponent<PressureWall>().WallBack();
+            director.GetComponent<GameDirector>().ScoreUp();
+
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "Obstruction")
         {
-            foreach (var list in wall)
-            {
-                list.GetComponent<PressureWall>().WallForward();
-            }
             Debug.Log("批判を受けた");
+
+            wall.GetComponent<PressureWall>().WallForward();
+            director.GetComponent<GameDirector>().ScoreDown();
             Destroy(collision.gameObject);
         }
     }

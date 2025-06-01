@@ -18,6 +18,14 @@ public class Timer : MonoBehaviour
     [SerializeField]
     List<GameObject> listActive;
 
+    [Header("Support Spawner")]
+    [SerializeField]
+    GameObject support;
+
+    [Header("Obstruction Spawner")]
+    [SerializeField]
+    GameObject ob;
+
     private Text text;
     private bool timerstop;
     void Start()
@@ -36,6 +44,9 @@ public class Timer : MonoBehaviour
         }
         if (second <= 0.0f || timerstop)
         {
+
+            support.GetComponent<SupportSpawner>().StopSpawning();
+            ob.GetComponent<ObSpawner>().StopSpawning();
             //タイムアップ
             foreach (var go in listInactive)
             {
@@ -53,28 +64,34 @@ public class Timer : MonoBehaviour
 
         if (second < 10)
         {
-
+            ChangeSpawnInterval(0.6f, 0.9f);
         }
         else if (second < 20)
         {
-
+            ChangeSpawnInterval(0.7f, 0.6f);
         }
         else if (second < 30)
         {
-
+            ChangeSpawnInterval(0.8f, 0.5f);
         }
-        else if(second<40)
+        else if (second < 40)
         {
-
+            ChangeSpawnInterval(0.6f, 0.8f);
         }
         else if (second < 50)
         {
-
+            ChangeSpawnInterval(0.5f, 1.0f);
         }
     }
 
     public void TimerStop()
     {
         timerstop = true;
+    }
+
+    public void ChangeSpawnInterval(float support, float ob)
+    {
+        this.support.GetComponent<SupportSpawner>().ChangeInterval(support);
+        this.ob.GetComponent<ObSpawner>().ChangeInterval(ob);
     }
 }
