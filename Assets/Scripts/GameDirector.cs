@@ -25,6 +25,10 @@ public class GameDirector : MonoBehaviour
     {
         Debug.Log("ScoreDown");
         score -= 100;
+        if (score <= 0)
+        {
+            score = 0;
+        }
         scoreManager.GetComponent<ScoreManager>().ScoreChange();
     }
 }

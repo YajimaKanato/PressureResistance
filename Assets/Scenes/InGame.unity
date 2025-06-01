@@ -819,7 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57de248bf8e77845b56aefee7082c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  second: 30
+  second: 10
   listInactive:
   - {fileID: 1306046969}
   - {fileID: 20359685}
