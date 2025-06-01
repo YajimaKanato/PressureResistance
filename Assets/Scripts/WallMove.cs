@@ -2,44 +2,34 @@ using UnityEngine;
 
 public class WallMove : MonoBehaviour
 {
-    [Header("Miss Count")]
-    [Tooltip("ゲームオーバーになる失敗回数を設定してください")]
+    [Header("Parent Object")]
+    [Tooltip("親オブジェクトを設定してください")]
     [SerializeField]
-    int miss = 10;
+    GameObject parent;
 
-    [Header("GameOver")]
-    [SerializeField]
-    GameObject timer;
-
-    [SerializeField]
-    GameObject cam;
-
-    private float rate;//壁の進む大きさ
+    private float miss;
+    private Vector3 basePos;
+    private Vector3 rate;//壁の進む大きさ
     void Start()
     {
-        rate = 1.0f / miss;
+        miss = PressureWall.Miss + 4;//+4は行動可能領域に余裕を持たせるため
+        basePos = transform.position;
+        rate = (new Vector3(0, 0, 0) - basePos) / miss;//(0,0,0)までの距離をmiss+2の回数で割ることで均等に進む
     }
 
     public void WallForward()
     {
-        if (transform.localScale.x > rate && transform.localScale.y > rate)
+        if (Vector3.Distance(new Vector3(0, 0, 0), transform.position) > rate.magnitude)
         {
-            Debug.Log("壁が迫った");
-            transform.localScale -= new Vector3(rate, rate, 0);
-        }
-        else
-        {
-            timer.GetComponent<Timer>().TimerStop();
-            //ゲームオーバーの操作
+            transform.position += rate;
         }
     }
 
     public void WallBack()
     {
-        if (transform.localScale.x < 1 && transform.localScale.y < 1)
+        if (Vector3.Distance(new Vector3(0, 0, 0), transform.position) < (rate * miss).magnitude)
         {
-            Debug.Log("壁が遠ざかった");
-            transform.localScale += new Vector3(rate, rate, 0);
+            transform.position -= rate;
         }
     }
 }

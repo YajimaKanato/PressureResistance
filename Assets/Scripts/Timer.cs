@@ -34,7 +34,6 @@ public class Timer : MonoBehaviour
             second -= Time.deltaTime;
             text.text = ((int)second).ToString("00") + ":" + ((second - (int)second) * 100).ToString("00");
         }
-
         if (second <= 0.0f || timerstop)
         {
             //タイムアップ
@@ -49,6 +48,28 @@ public class Timer : MonoBehaviour
             }
 
             this.gameObject.SetActive(false);
+        }
+
+
+        if (second < 10)
+        {
+
+        }
+        else if (second < 20)
+        {
+
+        }
+        else if (second < 30)
+        {
+
+        }
+        else if(second<40)
+        {
+
+        }
+        else if (second < 50)
+        {
+
         }
     }
 

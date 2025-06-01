@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour
         {
             foreach (var list in wall)
             {
-                list.GetComponent<WallMove>().WallBack();
+                list.GetComponent<PressureWall>().WallBack();
             }
             Debug.Log("‰ž‰‡‚ðŽó‚¯‚½");
             Destroy(collision.gameObject);
@@ -42,7 +42,7 @@ public class PlayerMove : MonoBehaviour
         {
             foreach (var list in wall)
             {
-                list.GetComponent<WallMove>().WallForward();
+                list.GetComponent<PressureWall>().WallForward();
             }
             Debug.Log("”á”»‚ðŽó‚¯‚½");
             Destroy(collision.gameObject);

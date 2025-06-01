@@ -25,6 +25,11 @@ public class SupportSpawner : MonoBehaviour
     [Tooltip("生成間隔")]
     public float spawnInterval = 1.0f;
 
+    /*[Header("Parent Object")]
+    [Tooltip("プレハブを生成する親オブジェクトを設定してください")]
+    [SerializeField]
+    GameObject parent;*/
+
     Coroutine coroutine;
 
     private void Start()
@@ -62,6 +67,7 @@ public class SupportSpawner : MonoBehaviour
             nowWeight += item.weight;
             if (rand <= nowWeight)
             {
+                //Instantiate(item.prefab).transform.parent=parent.transform;
                 Instantiate(item.prefab);
                 break;
             }
