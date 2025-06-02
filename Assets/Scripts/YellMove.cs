@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class YellMove : MonoBehaviour
 {
@@ -23,5 +25,15 @@ public class YellMove : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(Mathf.Cos(theta + Mathf.PI + range), Mathf.Sin(theta + Mathf.PI + range)) * 0.1f * speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            /*Debug.Log("‰¹‚ª–Â‚Á‚½");
+            AudioResource audio = GetComponent<AudioResource>();
+            AudioSource.PlayClipAtPoint(audio, this.transform.position);*/
+        }
     }
 }
