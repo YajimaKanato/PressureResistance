@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 public class PlayerMove : MonoBehaviour
 {
-    [Header("Speed")]
+    [Header("Speed/Frame")]
     [Tooltip("スピード倍率を設定してください")]
     [SerializeField]
     float speed = 0.5f;

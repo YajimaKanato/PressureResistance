@@ -819,7 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57de248bf8e77845b56aefee7082c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  second: 10
+  second: 60
   listInactive:
   - {fileID: 1306046969}
   - {fileID: 20359685}
@@ -2405,7 +2405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74708e9b12b0ad443abd7ca2694dcc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.03333334
   wall: {fileID: 833756765}
   director: {fileID: 560057405}
 --- !u!50 &1602032179

@@ -138,4 +138,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 9
-  speed: 0.4
+  speed: 0.06666667
