@@ -31,9 +31,11 @@ public class YellMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            /*Debug.Log("‰¹‚ª–Â‚Á‚½");
-            AudioResource audio = GetComponent<AudioResource>();
-            AudioSource.PlayClipAtPoint(audio, this.transform.position);*/
+            Debug.Log("‰¹‚ª–Â‚Á‚½");
+            /*AudioResource audio = GetComponent<AudioResource>();
+            AudioSource audios = GetComponent<AudioSource>();
+            audios.Play();*/
+
         }
     }
 }

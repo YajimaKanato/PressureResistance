@@ -29,7 +29,7 @@ public class WallMove : MonoBehaviour
     {
         if (Vector3.Distance(new Vector3(0, 0, 0), transform.position) < (rate * miss).magnitude)
         {
-            transform.position -= rate;
+            transform.position -= rate / 2;
         }
     }
 }

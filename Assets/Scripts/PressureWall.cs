@@ -16,10 +16,10 @@ public class PressureWall : MonoBehaviour
     [SerializeField]
     GameObject ob;*/
 
-    private const int miss = 6;//ï«Ç™îóÇÍÇÈç≈ëÂâÒêî
+    private const int miss = 6;//ï«Ç™îóÇÍÇÈç≈ëÂâÒêîÅiHPìIÇ»àµÇ¢Åj
     public static int Miss { get { return miss; } }
 
-    private int missCount = 0;
+    private static float missCount = 0;
 
     [Header("Timer")]
     [SerializeField]
@@ -46,19 +46,17 @@ public class PressureWall : MonoBehaviour
             cam.GetComponent<CameraController>().ZoomIn();
 
             missCount++;
-            switch (missCount)
+            if (2 <= missCount && missCount < 4)
             {
-                case 2:
-                    bg.GetComponent<BackGround>().BGListForward();
-                    break;
-                case 4:
-                    bg.GetComponent<BackGround>().BGListForward();
-                    break;
-                case 6:
-                    bg.GetComponent<BackGround>().BGListForward();
-                    break;
-                default:
-                    break;
+                bg.GetComponent<BackGround>().BGListForward(0, 1);
+            }
+            else if (4 <= missCount && missCount < 6)
+            {
+                bg.GetComponent<BackGround>().BGListForward(1, 2);
+            }
+            else if (6 <= missCount)
+            {
+                bg.GetComponent<BackGround>().BGListForward(2, 3);
             }
         }
         else
@@ -79,21 +77,35 @@ public class PressureWall : MonoBehaviour
 
             cam.GetComponent<CameraController>().ZoomOut();
 
-            missCount--;
-            switch (missCount)
+            missCount-=0.5f;
+            if (0 < missCount && missCount < 2)
             {
-                case 1:
-                    bg.GetComponent<BackGround>().BGListBack();
-                    break;
-                case 3:
-                    bg.GetComponent<BackGround>().BGListBack();
-                    break;
-                case 5:
-                    bg.GetComponent<BackGround>().BGListBack();
-                    break;
-                default:
-                    break;
+                bg.GetComponent<BackGround>().BGListBack(0, 1);
             }
+            else if (2 <= missCount && missCount < 4)
+            {
+                bg.GetComponent<BackGround>().BGListBack(1, 2);
+            }
+            else if (4 <= missCount && missCount < 6)
+            {
+                bg.GetComponent<BackGround>().BGListBack(2, 3);
+            }
+        }
+    }
+
+    void BGChange()
+    {
+        if (2 <= missCount && missCount < 4)
+        {
+            bg.GetComponent<BackGround>().BGListForward(0, 1);
+        }
+        else if (4 <= missCount && missCount < 5)
+        {
+            bg.GetComponent<BackGround>().BGListForward(1, 2);
+        }
+        else if (5 <= missCount && missCount < 6)
+        {
+            bg.GetComponent<BackGround>().BGListForward(2, 3);
         }
     }
 }

@@ -25,6 +25,6 @@ public class CameraController : MonoBehaviour
 
     public void ZoomOut()
     {
-        cam.fieldOfView += zoomRate;
+        cam.fieldOfView += zoomRate / 2;
     }
 }

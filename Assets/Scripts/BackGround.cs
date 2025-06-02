@@ -8,25 +8,15 @@ public class BackGround : MonoBehaviour
     [SerializeField]
     List<GameObject> list;
 
-    private int index = 0;
-    
-    public void BGListForward()
+    public void BGListForward(int index1, int index2)
     {
-        list[index].gameObject.SetActive(false);
-        if (index + 1 < list.Count)
-        {
-            index++;
-        }
-        list[index].gameObject.SetActive(true);
+        list[index1].gameObject.SetActive(false);
+        list[index2].gameObject.SetActive(true);
     }
 
-    public void BGListBack()
+    public void BGListBack(int index1, int index2)
     {
-        list[index].gameObject.SetActive(false);
-        if (index - 1 >= 0)
-        {
-            index--;
-        }
-        list[index].gameObject.SetActive(true);
+        list[index2].gameObject.SetActive(false);
+        list[index1].gameObject.SetActive(true);
     }
 }
