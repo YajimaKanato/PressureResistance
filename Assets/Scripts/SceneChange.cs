@@ -14,6 +14,6 @@ public class SceneChange : MonoBehaviour
     public void ChangeScene(string name)
     {
         SceneManager.LoadScene(name);
-        bgmManager.SoundChange(clip);
+        //bgmManager.SoundChange(clip);
     }
 }
